@@ -10,10 +10,12 @@ class Traveler {
         this.food = this.food + 2 
     }
     eat(){
-        if(this.food <1){
-            this.isHealthy= false
+        if (this.food < 1) {
+            this.isHealthy = false    
+        }else {
+        this.food= this.food -1
         }
-    }
+}
 }
 class Wagon{
     constructor (capacity, passengersList=[]){
@@ -39,21 +41,31 @@ class Wagon{
     shouldQuarantine() {
         // loop 
         //check each pass ishelthy
-        if(this.isHealthy === false){
+        /*if(this.isHealthy === false){
             return true
         }
         else{
 
             return false
-        }   
-        }
+        } */
+
+          for (let i = 0; i < this.passengersList.length; i++) {
+
+            if (this.passengersList[i].isHealthy=== false) {
+                return true
+            }
+        } return false
+    }  
+        
         totalFood(){
             // for and sumition
             let sum = 0
-            for(let i =0 ; i< this.passengersList.length; i++){
-                sum= sum+ this.passengersList[i].food 
-
-
+            for (let i = 0; i < this.passengersList.length; i++) {
+                sum = sum + this.passengersList[i].food
+            }
+    
+    
+            return sum
 
             }
 
@@ -62,7 +74,16 @@ class Wagon{
         }
 
 
-    }
+    
+// Add the wagons and the travelers to the DOM.
 
 
 
+/*ShowHTML(){}
+    let wagonsElement = document.createElement('wdetails')
+    let travelElement = document.createElement('tdetails')
+    
+    wagonsElement.append(this.Wagon)
+    travelElement.append(this.traveler)
+    
+}*/
